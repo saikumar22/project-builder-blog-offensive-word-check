@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Blog;
 import model.User;
+import utility.CheckBlogPost;
 
 
 @WebServlet(urlPatterns= {"/blog"})
@@ -22,17 +23,15 @@ public class BlogController extends HttpServlet {
     public BlogController() {
         super();
     }
-
-
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/blogView.jsp");
 		rd.forward(request, response);
 		
 	}
 
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String blogDetails = request.getParameter("selectedAnswers")	;
+		String blogDetails = request.getParameter("selectedAnswers");		
 		System.out.println(blogDetails);
 		String[] userBlog=blogDetails.split(",");
 		String title = userBlog[0];
@@ -47,8 +46,10 @@ public class BlogController extends HttpServlet {
 		blog.setBlogTitle(title);
 		blog.setBlogDescription(description);
 		blog.setDate(postedOn);
+		CheckBlogPost blog1 = new CheckBlogPost(); // blog1 is a checkBlogPost
+		boolean checkblog=blog1.checkBlog(blog);//these two lines i have written thas all
 
-		if(checkblog!) {
+		if(checkblog) {
 			request.setAttribute("blog", blog);
 			request.setAttribute("user",user);
 			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/blogView.jsp");

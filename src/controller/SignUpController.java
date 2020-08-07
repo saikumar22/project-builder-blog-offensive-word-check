@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.servlet.RequestDispatcher;
@@ -21,11 +20,8 @@ public class SignUpController extends HttpServlet {
        
 
     public SignUpController() {
-        super();
-       
+        super();  
     }
-
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/signupView.jsp");
 		rd.forward(request, response);
@@ -61,9 +57,7 @@ public class SignUpController extends HttpServlet {
 			request.setAttribute("message", "Check your email and password");
 			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/signupView.jsp");
 			rd.forward(request, response);
-		}
-		
-		
+		}	
 	}
 
 }

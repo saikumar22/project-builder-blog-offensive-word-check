@@ -30,7 +30,5 @@ public class Blog {
 	}
 	public void setDate(LocalDate date) {
 		this.date = date;
-	}
-	
-	
+	}	
 }

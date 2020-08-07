@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import businesslogic.ValidateUser;
-import model.User;
 
 
 @WebServlet(urlPatterns= {"/login"})
@@ -28,7 +27,6 @@ public class LoginController extends HttpServlet {
 	rd.forward(request, response);
 	}
 
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email = request.getParameter("email"); 
 		String password = request.getParameter("password"); 
@@ -41,10 +39,5 @@ public class LoginController extends HttpServlet {
 			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/loginView.jsp");
 			rd.forward(request, response);
 		}
-		
-		
-		
-		
 	}
-
 }
